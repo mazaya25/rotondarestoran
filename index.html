@@ -2,7 +2,7 @@
 <html lang="me">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restoran Menüsü</title>
     <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -10,7 +10,7 @@
         html, body {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 100vh; /* Tam ekran yüksekliği */
             overflow: hidden; /* Dikey kaydırmayı engelle */
             font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
@@ -26,16 +26,14 @@
             background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
         }
         .welcome-page img {
-            width: 25vw; /* Cihaz genişliğine göre ölçeklenir */
             max-width: 200px;
-            min-width: 150px;
-            margin-bottom: 2vh;
+            margin-bottom: 20px;
             filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
         }
         .language-btn {
-            margin: 1vh;
-            padding: 1vh 2vw;
-            font-size: clamp(14px, 2.5vw, 18px); /* Cihaz boyutuna göre ölçeklenir */
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
             cursor: pointer;
             background-color: #D96600; /* Logodaki turuncu */
             color: #000000; /* Siyah yazı */
@@ -48,20 +46,20 @@
         }
         .menu-page {
             display: none;
-            height: 100vh;
+            height: 100vh; /* Tam ekran yüksekliği */
             overflow: hidden; /* Dikey kaydırmayı engelle */
-            padding: 2vh;
+            padding: 20px;
             box-sizing: border-box;
         }
         .menu-page h2 {
             color: #D96600; /* Başlıklar logodaki turuncu */
-            margin: 1vh 0;
-            font-size: clamp(18px, 3vw, 24px); /* Cihaz boyutuna göre ölçeklenir */
+            margin: 10px 0;
+            font-size: 24px;
         }
         .back-btn {
-            margin: 1vh;
-            padding: 1vh 2vw;
-            font-size: clamp(12px, 2vw, 16px); /* Cihaz boyutuna göre ölçeklenir */
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
             cursor: pointer;
             background-color: #D96600; /* Geri butonu logodaki turuncu */
             color: #000000; /* Siyah yazı */
@@ -74,8 +72,8 @@
         }
         .swiper-container {
             width: 100%;
-            height: calc(100vh - 15vh); /* Başlık ve geri butonu için yer bırak, cihaz boyutuna göre ayarlanır */
-            max-width: 90vw; /* Cihaz genişliğine göre ölçeklenir */
+            max-width: 800px;
+            height: calc(100vh - 120px); /* Başlık ve geri butonu için yer bırak */
             margin: 0 auto;
         }
         .swiper-slide img {
@@ -83,22 +81,12 @@
             height: 100%;
             object-fit: contain;
             border: 1px solid #555;
-            border-radius: 5px;
+            border-radius: 10px;
             background-color: #fff;
         }
         .swiper-container {
             --swiper-navigation-color: #D96600; /* Navigasyon okları logodaki turuncu */
             --swiper-pagination-color: #D96600; /* Pagination noktaları logodaki turuncu */
-        }
-        /* Mobil cihazlar için ek ayarlar */
-        @media (max-width: 600px) {
-            .welcome-page img {
-                width: 40vw;
-                max-width: 150px;
-            }
-            .swiper-container {
-                height: calc(100vh - 20vh); /* Mobil cihazlarda daha fazla yer bırak */
-            }
         }
     </style>
 </head>
@@ -223,7 +211,7 @@
 
             // Mevcut Swiper'ı yok et ve yenisini başlat
             if (currentSwiper) currentSwiper.destroy();
-            currentSwiper = new Swiper(`#menu-${lang} .swiper-container', {
+            currentSwiper = new Swiper(`#menu-${lang} .swiper-container`, {
                 effect: 'coverflow',
                 grabCursor: true,
                 centeredSlides: true,
