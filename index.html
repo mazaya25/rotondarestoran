@@ -47,7 +47,22 @@
             padding: 20px;
         }
         .menu-page h2 {
-            color: #e74c3c;
+            color: #f39c12; /* Başlıklar turuncu */
+            margin-bottom: 20px;
+        }
+        .back-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #f39c12; /* Turuncu geri butonu */
+            color: #000000; /* Siyah yazı */
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #e67e22; /* Hover için koyu turuncu */
         }
         .swiper-container {
             width: 100%;
@@ -64,8 +79,8 @@
             background-color: #fff;
         }
         .swiper-container {
-            --swiper-navigation-color: #e74c3c;
-            --swiper-pagination-color: #e74c3c;
+            --swiper-navigation-color: #f39c12; /* Navigasyon okları turuncu */
+            --swiper-pagination-color: #f39c12; /* Pagination noktaları turuncu */
         }
     </style>
 </head>
@@ -81,6 +96,7 @@
     <!-- Menü Sayfası (Karadağca - Varsayılan) -->
     <div class="menu-page" id="menu-me" style="display: block;">
         <h2>Meni na Crnogorskom</h2>
+        <button class="back-btn" onclick="goBack()">Nazad na Početnu</button>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="menu/me/page1.jpg" alt="Meni Strana 1"></div>
@@ -105,6 +121,7 @@
     <!-- Menü Sayfası (İngilizce) -->
     <div class="menu-page" id="menu-en">
         <h2>English Menu</h2>
+        <button class="back-btn" onclick="goBack()">Back to Home</button>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="menu/en/page1.jpg" alt="Menu Page 1"></div>
@@ -129,6 +146,7 @@
     <!-- Menü Sayfası (Türkçe) -->
     <div class="menu-page" id="menu-tr">
         <h2>Türkçe Menü</h2>
+        <button class="back-btn" onclick="goBack()">Ana Sayfaya Dön</button>
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="menu/tr/page1.jpg" alt="Menü Sayfa 1"></div>
@@ -207,6 +225,13 @@
                     prevEl: '.swiper-button-prev',
                 },
             });
+        }
+
+        function goBack() {
+            document.getElementById('welcomePage').style.display = 'flex';
+            document.getElementById('menu-me').style.display = 'none';
+            document.getElementById('menu-en').style.display = 'none';
+            document.getElementById('menu-tr').style.display = 'none';
         }
     </script>
 </body>
